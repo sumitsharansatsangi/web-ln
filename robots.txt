@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://loanx.kumpali.com/sitemap.xml
