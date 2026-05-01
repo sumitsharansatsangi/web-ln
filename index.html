@@ -4,73 +4,2286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LoanX - By Kumpali Technologies</title>
-    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <title>Kumpali — Assisting Humanity, Every Domain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #cfa9fd;
+            --bg2: #c69cff;
+            --surface: #c095fe;
+            --border: rgba(134, 91, 223, 0.18);
+            --text: #2d0a4d;
+            --muted: #865bdf;
+            --accent: #c8a0fe;
+
+            --solunis: #b68afe;
+            --solunis-glow: rgba(198, 156, 255, 0.18);
+            --chumble: #a77dee;
+            --chumble-glow: rgba(167, 125, 238, 0.18);
+            --placyra: #c094fd;
+            --placyra-glow: rgba(192, 148, 253, 0.18);
+            --bledz: #b78afd;
+            --bledz-glow: rgba(183, 138, 253, 0.18);
+            --law: #865bdf;
+            --law-glow: rgba(134, 91, 223, 0.18);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Nunito', sans-serif;
+            font-weight: 400;
+            line-height: 1.75;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img,
+        canvas {
+            max-width: 100%;
+        }
+
+        a,
+        p,
+        h1,
+        h2,
+        h3,
+        div,
+        span {
+            overflow-wrap: break-word;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.1rem 4rem;
+            background: rgba(6, 8, 16, 0.78);
+            backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-logo {
+            font-family: 'Fraunces', serif;
+            font-weight: 900;
+            font-size: 1.55rem;
+            letter-spacing: 0.04em;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+        }
+
+        .nav-logo-mark {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent), #E8845A);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: #060810;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            padding: 0.5rem 1.4rem;
+            background: var(--accent);
+            color: #060810;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .nav-cta:hover {
+            opacity: 0.85;
+        }
+
+        /* ── CANVAS / HERO ── */
+        #hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 10rem 2rem 5rem;
+            overflow: hidden;
+        }
+
+        #hero-canvas {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-eyebrow {
+            position: relative;
+            z-index: 1;
+            font-size: 0.73rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .hero-eyebrow::before,
+        .hero-eyebrow::after {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 1px;
+            background: var(--accent);
+            opacity: 0.5;
+        }
+
+        .hero-title {
+            position: relative;
+            z-index: 1;
+            font-family: 'Fraunces', serif;
+            font-size: 7rem;
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: 0;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-title .line1 {
+            display: block;
+            color: var(--text);
+        }
+
+        .hero-title .line2 {
+            display: block;
+            background: linear-gradient(90deg, var(--accent) 0%, #E8845A 50%, var(--bledz) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-sub {
+            position: relative;
+            z-index: 1;
+            font-size: 1.18rem;
+            color: var(--muted);
+            max-width: 540px;
+            margin: 0 auto 2.8rem;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .hero-sub strong {
+            color: var(--text);
+            font-weight: 700;
+        }
+
+        .hero-actions {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            padding: 0.85rem 2.2rem;
+            background: linear-gradient(135deg, var(--accent), #E8845A);
+            color: #060810;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 0 28px rgba(200, 169, 110, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(200, 169, 110, 0.4);
+        }
+
+        .btn-ghost {
+            padding: 0.85rem 2.2rem;
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .btn-ghost:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .hero-products-row {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 4rem;
+        }
+
+        .hero-pill {
+            padding: 0.38rem 1.1rem;
+            border-radius: 50px;
+            font-size: 0.76rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            border: 1px solid;
+            transition: transform 0.2s;
+            cursor: default;
+        }
+
+        .hero-pill:hover {
+            transform: translateY(-3px);
+        }
+
+        .pill-solunis {
+            color: var(--solunis);
+            border-color: var(--solunis);
+            background: var(--solunis-glow);
+        }
+
+        .pill-chumble {
+            color: var(--chumble);
+            border-color: var(--chumble);
+            background: var(--chumble-glow);
+        }
+
+        .pill-placyra {
+            color: var(--placyra);
+            border-color: var(--placyra);
+            background: var(--placyra-glow);
+        }
+
+        .pill-bledz {
+            color: var(--bledz);
+            border-color: var(--bledz);
+            background: var(--bledz-glow);
+        }
+
+        .pill-law {
+            color: var(--law);
+            border-color: var(--law);
+            background: var(--law-glow);
+        }
+
+        .scroll-indicator {
+            position: relative;
+            z-index: 1;
+            margin-top: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .scroll-indicator .line {
+            width: 1px;
+            height: 50px;
+            background: linear-gradient(to bottom, var(--muted), transparent);
+            animation: scrollLine 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollLine {
+
+            0%,
+            100% {
+                transform: scaleY(0.3);
+                opacity: 0.3;
+            }
+
+            50% {
+                transform: scaleY(1);
+                opacity: 1;
+            }
+        }
+
+        /* ── SECTION COMMONS ── */
+        section {
+            padding: 7rem 4rem;
+        }
+
+        .section-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-label::before {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 1px;
+            background: currentColor;
+        }
+
+        h2.section-title {
+            font-family: 'Fraunces', serif;
+            font-size: 3.8rem;
+            font-weight: 900;
+            line-height: 1.08;
+            letter-spacing: 0;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            color: var(--muted);
+            font-size: 1.08rem;
+            max-width: 560px;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        /* ── OVERVIEW / MISSION ── */
+        #mission {
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .mission-quote {
+            font-family: 'Fraunces', serif;
+            font-size: 2.4rem;
+            font-style: italic;
+            line-height: 1.5;
+            color: var(--text);
+            font-weight: 300;
+        }
+
+        .mission-quote span {
+            color: var(--accent);
+        }
+
+        .mission-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .stat-box {
+            padding: 1.8rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .stat-num {
+            font-family: 'Fraunces', serif;
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        /* ── PRODUCTS OVERVIEW ── */
+        #products {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .products-header {
+            text-align: center;
+            margin-bottom: 4.5rem;
+        }
+
+        .products-header .section-label {
+            justify-content: center;
+        }
+
+        .products-header .section-desc {
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            position: relative;
+            padding: 2.5rem 2rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+            cursor: default;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-solunis {
+            --c: var(--solunis);
+            --cg: var(--solunis-glow);
+        }
+
+        .card-chumble {
+            --c: var(--chumble);
+            --cg: var(--chumble-glow);
+        }
+
+        .card-placyra {
+            --c: var(--placyra);
+            --cg: var(--placyra-glow);
+        }
+
+        .card-bledz {
+            --c: var(--bledz);
+            --cg: var(--bledz-glow);
+        }
+
+        .card-law {
+            --c: var(--law);
+            --cg: var(--law-glow);
+        }
+
+        .product-card {
+            border-color: var(--border);
+        }
+
+        .product-card:hover {
+            border-color: var(--c);
+        }
+
+        .product-card::before {
+            background: radial-gradient(ellipse at 30% 30%, var(--cg), transparent 70%);
+        }
+
+        .card-span2 {
+            grid-column: span 2;
+        }
+
+        .card-icon {
+            width: 52px;
+            height: 52px;
+            background: var(--cg);
+            border: 1px solid var(--c);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-tag {
+            font-size: 0.68rem;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--c);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-name {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            font-weight: 900;
+            letter-spacing: 0;
+            color: var(--text);
+            margin-bottom: 0.8rem;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.78;
+            font-weight: 400;
+        }
+
+        .card-features {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .feat-tag {
+            padding: 0.25rem 0.7rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.72rem;
+            color: var(--muted);
+        }
+
+        .card-arrow {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            font-size: 1.2rem;
+            color: var(--muted);
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .product-card:hover .card-arrow {
+            color: var(--c);
+            transform: translate(3px, -3px);
+        }
+
+        /* ── PRODUCT DETAIL SECTIONS ── */
+        .product-section {
+            position: relative;
+            border-top: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .product-section::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.12;
+            pointer-events: none;
+        }
+
+        .ps-solunis::before {
+            background: var(--solunis);
+        }
+
+        .ps-chumble::before {
+            background: var(--chumble);
+        }
+
+        .ps-placyra::before {
+            background: var(--placyra);
+        }
+
+        .ps-bledz::before {
+            background: var(--bledz);
+        }
+
+        .ps-law::before {
+            background: var(--law);
+        }
+
+        .product-section .inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .product-section .inner.flip {
+            direction: rtl;
+        }
+
+        .product-section .inner.flip>* {
+            direction: ltr;
+        }
+
+        .ps-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .ps-name {
+            font-family: 'Fraunces', serif;
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 0.95;
+            letter-spacing: 0;
+            margin-bottom: 1.2rem;
+            color: var(--text);
+        }
+
+        .ps-tagline {
+            font-family: 'Fraunces', serif;
+            font-size: 1.18rem;
+            font-style: italic;
+            font-weight: 300;
+            color: var(--muted);
+            margin-bottom: 1.8rem;
+            line-height: 1.65;
+        }
+
+        .ps-body {
+            font-size: 1rem;
+            color: var(--muted);
+            line-height: 1.85;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            font-size: 0.97rem;
+            color: var(--text);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .feat-icon {
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+            margin-top: 0.12rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .ps-visual {
+            position: relative;
+            border-radius: 24px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ps-visual-inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 2rem;
+        }
+
+        /* ── Solunis Visual ── */
+        .sol-calendar {
+            width: 100%;
+            max-width: 320px;
+            background: rgba(232, 132, 90, 0.06);
+            border: 1px solid rgba(232, 132, 90, 0.2);
+            border-radius: 16px;
+            padding: 1.2rem;
+        }
+
+        .sol-cal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--solunis);
+            font-size: 0.88rem;
+        }
+
+        .sol-cal-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            font-size: 0.72rem;
+            text-align: center;
+        }
+
+        .sol-day {
+            padding: 0.3rem;
+            border-radius: 6px;
+            color: var(--muted);
+        }
+
+        .sol-day.active {
+            background: var(--solunis);
+            color: #060810;
+            font-weight: 700;
+        }
+
+        .sol-day.event {
+            border: 1px solid var(--solunis);
+            color: var(--solunis);
+        }
+
+        .sol-badges {
+            display: flex;
+            gap: 0.4rem;
+            margin-top: 0.8rem;
+            flex-wrap: wrap;
+        }
+
+        .sol-badge {
+            padding: 0.2rem 0.55rem;
+            border-radius: 50px;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+
+        /* ── Chumble Visual ── */
+        .chum-dashboard {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            max-width: 340px;
+        }
+
+        .chum-row {
+            display: flex;
+            gap: 0.7rem;
+        }
+
+        .chum-box {
+            background: rgba(62, 207, 178, 0.06);
+            border: 1px solid rgba(62, 207, 178, 0.18);
+            border-radius: 12px;
+            padding: 1rem;
+            flex: 1;
+        }
+
+        .chum-box-label {
+            font-size: 0.65rem;
+            color: var(--muted);
+            margin-bottom: 0.3rem;
+        }
+
+        .chum-box-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--chumble);
+        }
+
+        .chum-bar-track {
+            height: 5px;
+            background: rgba(62, 207, 178, 0.1);
+            border-radius: 3px;
+            margin-top: 0.5rem;
+        }
+
+        .chum-bar-fill {
+            height: 5px;
+            background: var(--chumble);
+            border-radius: 3px;
+        }
+
+        /* ── Placyra Visual ── */
+        .plac-map {
+            width: 100%;
+            max-width: 320px;
+            background: rgba(91, 156, 246, 0.05);
+            border: 1px solid rgba(91, 156, 246, 0.18);
+            border-radius: 16px;
+            padding: 1.2rem;
+        }
+
+        .plac-pin {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 0.6rem;
+        }
+
+        .plac-address {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--placyra);
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .plac-verify {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            background: rgba(91, 156, 246, 0.12);
+            border-radius: 8px;
+            padding: 0.5rem;
+            font-size: 0.72rem;
+            color: var(--text);
+        }
+
+        .plac-check {
+            color: var(--law);
+            font-size: 1rem;
+        }
+
+        .plac-fields {
+            margin-top: 0.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .plac-field {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.45rem 0.7rem;
+            font-size: 0.7rem;
+            color: var(--muted);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .plac-field span {
+            color: var(--text);
+        }
+
+        /* ── Bledz Visual ── */
+        .bledz-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .bledz-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: rgba(212, 105, 154, 0.06);
+            border: 1px solid rgba(212, 105, 154, 0.18);
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+        }
+
+        .bledz-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--bledz), #E8845A);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .bledz-info {
+            font-size: 0.78rem;
+        }
+
+        .bledz-info b {
+            display: block;
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        .bledz-info small {
+            color: var(--muted);
+        }
+
+        .bledz-recs {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .bledz-item {
+            flex: 1;
+            background: rgba(212, 105, 154, 0.06);
+            border: 1px solid rgba(212, 105, 154, 0.18);
+            border-radius: 12px;
+            padding: 0.8rem;
+            text-align: center;
+            font-size: 0.7rem;
+        }
+
+        .bledz-item-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .bledz-item-name {
+            color: var(--text);
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+        }
+
+        .bledz-item-match {
+            color: var(--bledz);
+            font-weight: 700;
+        }
+
+        /* ── LawPartner Visual ── */
+        .law-visual {
+            width: 100%;
+            max-width: 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+
+        .law-step {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            background: rgba(143, 212, 106, 0.05);
+            border: 1px solid rgba(143, 212, 106, 0.15);
+            border-radius: 12px;
+            padding: 0.8rem 1rem;
+        }
+
+        .law-step-num {
+            width: 26px;
+            height: 26px;
+            flex-shrink: 0;
+            background: rgba(143, 212, 106, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--law);
+        }
+
+        .law-step-text {
+            font-size: 0.78rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+
+        .law-step-text small {
+            display: block;
+            color: var(--muted);
+            font-size: 0.68rem;
+        }
+
+        /* ── STATS STRIP ── */
+        #strip {
+            background: var(--accent);
+            padding: 3rem 4rem;
+            display: flex;
+            justify-content: center;
+            gap: 6rem;
+            flex-wrap: wrap;
+        }
+
+        .strip-item {
+            text-align: center;
+        }
+
+        .strip-num {
+            font-family: 'Fraunces', serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #060810;
+            line-height: 1;
+        }
+
+        .strip-lbl {
+            font-size: 0.82rem;
+            color: rgba(6, 8, 16, 0.65);
+            letter-spacing: 0.04em;
+            margin-top: 0.3rem;
+            font-weight: 600;
+        }
+
+        /* ── CTA ── */
+        #cta {
+            text-align: center;
+            padding: 9rem 2rem;
+            background: var(--bg2);
+            border-top: 1px solid var(--border);
+        }
+
+        #cta h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 5rem;
+            font-weight: 900;
+            line-height: 1.08;
+            letter-spacing: 0;
+            margin-bottom: 1.2rem;
+        }
+
+        #cta p {
+            color: var(--muted);
+            font-size: 1.1rem;
+            max-width: 480px;
+            margin: 0 auto 2.5rem;
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            padding: 3.5rem 4rem;
+            border-top: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-logo {
+            font-family: 'Fraunces', serif;
+            font-weight: 900;
+            font-size: 1.3rem;
+            color: var(--text);
+            text-decoration: none;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            font-size: 0.88rem;
+            color: var(--muted);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        .footer-copy {
+            font-size: 0.82rem;
+            color: var(--muted);
+            font-weight: 400;
+        }
+
+        /* ── ANIMATIONS ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (min-width: 1400px) {
+            nav {
+                padding-inline: max(4rem, calc((100vw - 1320px) / 2));
+            }
+
+            #hero {
+                min-height: 96vh;
+            }
+
+            .hero-sub {
+                max-width: 620px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1.35fr 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 1180px) {
+            nav {
+                display: grid;
+                grid-template-columns: auto auto;
+                row-gap: 0.9rem;
+                padding: 1rem 2rem;
+            }
+
+            .nav-links {
+                grid-column: 1 / -1;
+                justify-content: center;
+                gap: 1.25rem;
+                order: 3;
+            }
+
+            .nav-links a {
+                font-size: 0.76rem;
+            }
+
+            section {
+                padding: 6rem 2rem;
+            }
+
+            #hero {
+                min-height: auto;
+                padding: 12rem 2rem 5rem;
+            }
+
+            .hero-title {
+                font-size: 5.2rem;
+            }
+
+            h2.section-title {
+                font-size: 3.1rem;
+            }
+
+            .mission-grid {
+                grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+                gap: 3rem;
+            }
+
+            .mission-quote {
+                font-size: 1.9rem;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .card-span2 {
+                grid-column: span 2;
+            }
+
+            .product-section .inner {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 3rem;
+            }
+
+            .product-section .inner.flip {
+                direction: ltr;
+            }
+
+            .ps-name {
+                font-size: 3.8rem;
+            }
+
+            .ps-visual {
+                aspect-ratio: 16 / 9;
+            }
+
+            #strip {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 3rem;
+            }
+
+            #cta h2 {
+                font-size: 4rem;
+            }
+
+            footer {
+                padding: 3rem 2rem;
+                display: grid;
+                grid-template-columns: 1fr;
+                justify-items: center;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 720px) {
+            html {
+                font-size: 15px;
+            }
+
+            nav {
+                grid-template-columns: 1fr auto;
+                padding: 0.85rem 1rem;
+            }
+
+            .nav-logo {
+                font-size: 1.15rem;
+            }
+
+            .nav-logo-mark {
+                width: 28px;
+                height: 28px;
+                border-radius: 7px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-cta {
+                padding: 0.45rem 0.85rem;
+                font-size: 0.7rem;
+                white-space: nowrap;
+            }
+
+            #hero {
+                align-items: stretch;
+                justify-content: flex-start;
+                min-height: 100svh;
+                padding: 8.5rem 1rem 3rem;
+                text-align: left;
+            }
+
+            .hero-eyebrow {
+                justify-content: flex-start;
+                gap: 0.5rem;
+                font-size: 0.66rem;
+                line-height: 1.5;
+                margin-bottom: 1.1rem;
+            }
+
+            .hero-eyebrow::before {
+                width: 20px;
+            }
+
+            .hero-eyebrow::after {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 3.25rem;
+                line-height: 1;
+            }
+
+            .hero-sub {
+                margin: 0 0 2rem;
+                max-width: none;
+                font-size: 1rem;
+                line-height: 1.7;
+            }
+
+            .hero-actions {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+            }
+
+            .btn-primary,
+            .btn-ghost {
+                width: 100%;
+                padding: 0.85rem 1rem;
+                text-align: center;
+            }
+
+            .hero-products-row {
+                justify-content: flex-start;
+                margin-top: 2.25rem;
+            }
+
+            .hero-pill {
+                padding: 0.36rem 0.8rem;
+            }
+
+            .scroll-indicator {
+                align-items: flex-start;
+                margin-top: 2.5rem;
+            }
+
+            section {
+                padding: 4.25rem 1rem;
+            }
+
+            .section-label {
+                font-size: 0.66rem;
+                line-height: 1.5;
+            }
+
+            h2.section-title {
+                font-size: 2.35rem;
+                line-height: 1.1;
+            }
+
+            .section-desc {
+                font-size: 1rem;
+            }
+
+            .products-header {
+                text-align: left;
+                margin-bottom: 2.5rem;
+            }
+
+            .products-header .section-label {
+                justify-content: flex-start;
+            }
+
+            .products-header .section-desc {
+                margin: 0;
+            }
+
+            .mission-grid,
+            .mission-stats,
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .mission-grid {
+                gap: 2rem;
+            }
+
+            .mission-quote {
+                font-size: 1.5rem;
+            }
+
+            .stat-box,
+            .product-card {
+                border-radius: 12px;
+            }
+
+            .stat-box {
+                padding: 1.25rem;
+            }
+
+            .stat-num {
+                font-size: 2.1rem;
+            }
+
+            .card-span2 {
+                grid-column: span 1;
+            }
+
+            .product-card {
+                padding: 1.6rem 1.2rem;
+            }
+
+            .card-icon {
+                width: 44px;
+                height: 44px;
+                border-radius: 10px;
+                font-size: 1.25rem;
+                margin-bottom: 1.1rem;
+            }
+
+            .card-name {
+                font-size: 1.65rem;
+            }
+
+            .card-arrow {
+                top: 1.35rem;
+                right: 1.35rem;
+            }
+
+            .product-section .inner {
+                gap: 2rem;
+            }
+
+            .product-section::before {
+                width: 360px;
+                height: 360px;
+                top: -150px;
+                right: -190px;
+            }
+
+            .ps-name {
+                font-size: 3rem;
+                line-height: 1;
+            }
+
+            .ps-tagline {
+                font-size: 1.05rem;
+            }
+
+            .ps-body,
+            .features-list li {
+                font-size: 0.95rem;
+                line-height: 1.7;
+            }
+
+            .ps-visual {
+                aspect-ratio: auto;
+                min-height: 320px;
+                border-radius: 14px;
+            }
+
+            .ps-visual-inner {
+                padding: 1rem;
+            }
+
+            .chum-row,
+            .bledz-recs {
+                flex-direction: column;
+            }
+
+            .plac-field {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 0.15rem;
+            }
+
+            #strip {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                padding: 2.4rem 1rem;
+                gap: 1.6rem 1rem;
+            }
+
+            .strip-num {
+                font-size: 2.2rem;
+            }
+
+            #cta {
+                padding: 5rem 1rem;
+            }
+
+            #cta h2 {
+                font-size: 3rem;
+            }
+
+            #cta p {
+                font-size: 1rem;
+            }
+
+            footer {
+                padding: 2.5rem 1rem;
+            }
+
+            .footer-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.85rem 1.2rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero-title {
+                font-size: 2.65rem;
+            }
+
+            h2.section-title {
+                font-size: 2rem;
+            }
+
+            .ps-name {
+                font-size: 2.45rem;
+            }
+
+            .sol-cal-header,
+            .plac-address,
+            .plac-verify {
+                align-items: flex-start;
+                flex-direction: column;
+                text-align: left;
+            }
+
+            #strip {
+                grid-template-columns: 1fr;
+            }
+
+            #cta h2 {
+                font-size: 2.45rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <img src="./logo.png" alt="Mortgage App Logo" class="app-logo">
-                <div>
-                    <h1>LoanX</h1>
+
+    <!-- ── NAV ── -->
+    <nav>
+        <a href="#" class="nav-logo">
+            <img src="kumpali_dark.png" alt="Kumpali Logo" class="nav-logo-mark"
+                style="background:none;width:36px;height:36px;border-radius:8px;box-shadow:none;object-fit:contain;">
+            KUMPALI
+        </a>
+        <ul class="nav-links">
+            <li><a href="#products">Products</a></li>
+            <li><a href="#solunis">Solunis</a></li>
+            <li><a href="#chumble">Chumble</a></li>
+            <li><a href="#placyra">Placyra</a></li>
+            <li><a href="#bledz">Bledz</a></li>
+            <li><a href="#lawpartner">LawPartner</a></li>
+        </ul>
+        <a href="#cta" class="nav-cta">Get Started</a>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section id="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-eyebrow">Kumpali &mdash; Assisting Humanity</div>
+        <h1 class="hero-title">
+            <span class="line1">One Ecosystem.</span>
+            <span class="line2">Every Domain.</span>
+        </h1>
+        <p class="hero-sub">
+            From daily rituals to business operations, from identity to fashion to justice —
+            <strong>Kumpali</strong> builds intelligent solutions that make life simpler for everyone.
+        </p>
+        <div class="hero-actions">
+            <a href="#products" class="btn-primary">Explore Our Products</a>
+            <a href="#mission" class="btn-ghost">Our Mission</a>
+        </div>
+        <div class="hero-products-row">
+            <span class="hero-pill pill-solunis">Solunis</span>
+            <span class="hero-pill pill-chumble">Chumble</span>
+            <span class="hero-pill pill-placyra">Placyra</span>
+            <span class="hero-pill pill-bledz">Bledz</span>
+            <span class="hero-pill pill-law">LawPartner</span>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <div class="line"></div>
+        </div>
+    </section>
+
+    <!-- ── MISSION ── -->
+    <section id="mission">
+        <div class="mission-grid fade-up">
+            <div>
+                <div class="section-label">Our Philosophy</div>
+                <p class="mission-quote">
+                    Technology must serve <span>every human</span>, not just those who are already privileged — across
+                    every culture, every language, every need.
+                </p>
+            </div>
+            <div class="mission-stats">
+                <div class="stat-box">
+                    <div class="stat-num">5</div>
+                    <div class="stat-label">Life Domains Covered</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">∞</div>
+                    <div class="stat-label">People We Aim to Reach</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">1</div>
+                    <div class="stat-label">Unified Ecosystem</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-num">All</div>
+                    <div class="stat-label">Communities & Cultures</div>
                 </div>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="https://forms.gle/TBGqJteJm9YvXCd86" target="_blank">Contact</a></li>
-                    <li><a href="privacy.html">Privacy Policy</a></li>
+        </div>
+    </section>
+
+    <!-- ── PRODUCTS OVERVIEW ── -->
+    <section id="products">
+        <div class="products-header fade-up">
+            <div class="section-label">Our Ecosystem</div>
+            <h2 class="section-title">Five Pillars of Human Assistance</h2>
+            <p class="section-desc">Each product is a specialist — together they form a complete ecosystem for modern
+                human life.</p>
+        </div>
+        <div class="products-grid fade-up">
+
+            <a href="#solunis" class="product-card card-solunis card-span2">
+                <span class="card-arrow">↗</span>
+                <div class="card-icon">🌙</div>
+                <div class="card-tag">Daily Life</div>
+                <div class="card-name">Solunis</div>
+                <div class="card-desc">A multi-religious calendar, appointment scheduler, reminder hub, and celebration
+                    platform — bridging traditional and Gregorian calendars for every community on earth.</div>
+                <div class="card-features">
+                    <span class="feat-tag">Multi-Calendar</span>
+                    <span class="feat-tag">Religious Events</span>
+                    <span class="feat-tag">Birthday Reminders</span>
+                    <span class="feat-tag">Card Sharing</span>
+                    <span class="feat-tag">Invitations</span>
+                    <span class="feat-tag">Meeting Scheduler</span>
+                </div>
+            </a>
+
+            <a href="#chumble" class="product-card card-chumble">
+                <span class="card-arrow">↗</span>
+                <div class="card-icon">🏪</div>
+                <div class="card-tag">Business</div>
+                <div class="card-name">Chumble</div>
+                <div class="card-desc">A complete Business OS for shops of all sizes — inventory, sales, tax
+                    suggestions, rack management and more in one unified platform.</div>
+                <div class="card-features">
+                    <span class="feat-tag">Inventory</span>
+                    <span class="feat-tag">Sale & Purchase</span>
+                    <span class="feat-tag">Tax Assistant</span>
+                </div>
+            </a>
+
+            <a href="#placyra" class="product-card card-placyra">
+                <span class="card-arrow">↗</span>
+                <div class="card-icon">📍</div>
+                <div class="card-tag">Identity & Banking</div>
+                <div class="card-name">Placyra</div>
+                <div class="card-desc">Intelligent address verification and KYC platform for banks, institutions, and
+                    organisations that need trusted, precise identity validation.</div>
+                <div class="card-features">
+                    <span class="feat-tag">KYC</span>
+                    <span class="feat-tag">Address Verify</span>
+                    <span class="feat-tag">Fraud Prevention</span>
+                </div>
+            </a>
+
+            <a href="#bledz" class="product-card card-bledz">
+                <span class="card-arrow">↗</span>
+                <div class="card-icon">👗</div>
+                <div class="card-tag">Fashion</div>
+                <div class="card-name">Bledz</div>
+                <div class="card-desc">AI-powered fashion assistant that recommends clothing tailored to your lifestyle,
+                    body type, and personal aesthetic — your stylist in your pocket.</div>
+                <div class="card-features">
+                    <span class="feat-tag">Style Match</span>
+                    <span class="feat-tag">Body-Fit AI</span>
+                    <span class="feat-tag">Lifestyle-Based</span>
+                </div>
+            </a>
+
+            <a href="#lawpartner" class="product-card card-law">
+                <span class="card-arrow">↗</span>
+                <div class="card-icon">⚖️</div>
+                <div class="card-tag">Legal Assistance</div>
+                <div class="card-name">LawPartner</div>
+                <div class="card-desc">Guides citizens through legal processes — understanding rights, relevant laws,
+                    and step-by-step actions when facing legal challenges.</div>
+                <div class="card-features">
+                    <span class="feat-tag">Legal Guidance</span>
+                    <span class="feat-tag">Rights Awareness</span>
+                    <span class="feat-tag">Step-by-Step</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- ── SOLUNIS ── -->
+    <section id="solunis" class="product-section ps-solunis">
+        <div class="inner">
+            <div class="fade-up">
+                <div class="ps-label" style="color:var(--solunis)">Daily Life · Solunis</div>
+                <div class="ps-name">Solunis</div>
+                <div class="ps-tagline">"Every culture has a calendar. Solunis holds them all."</div>
+                <div class="ps-body">
+                    Solunis is a unified life-management platform built around the richness of human tradition. Whether
+                    you follow the Islamic Hijri, Hindu Panchang, Hebrew, Gregorian, or any other calendar, Solunis lets
+                    you layer them together — so your local festival and your international meeting live side by side.
+                    From scheduling appointments to sharing birthday cards and wedding invitations, it's the one app for
+                    life's most human moments.
+                </div>
+                <ul class="features-list">
+                    <li>
+                        <div class="feat-icon" style="background:var(--solunis-glow);color:var(--solunis)">📅</div>
+                        <div><strong>Multi-Calendar Support</strong> — Select and overlay traditional + Gregorian
+                            calendars simultaneously</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--solunis-glow);color:var(--solunis)">🔔</div>
+                        <div><strong>Smart Reminders</strong> — Special alerts for birthdays, anniversaries, religious
+                            days, and custom events</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--solunis-glow);color:var(--solunis)">💌</div>
+                        <div><strong>Card & Invitation Sharing</strong> — Beautiful digital cards for every occasion,
+                            shareable instantly</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--solunis-glow);color:var(--solunis)">🤝</div>
+                        <div><strong>Appointment & Meeting Scheduler</strong> — Book and manage meetings respecting
+                            cultural contexts</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--solunis-glow);color:var(--solunis)">🌍</div>
+                        <div><strong>Multi-Religious Awareness</strong> — Festival database covering dozens of world
+                            religions and traditions</div>
+                    </li>
                 </ul>
-            </nav>
-            <button id="theme-toggle" class="icon-button"><span id="toggle-icon">🌞</span></button>
-        </header>
-        <main>
-            <section class="hero animate__animated animate__fadeIn">
-                <div class="hero-content animate__animated animate__fadeInDown">
-                    <h2>Introducing LoanX</h2>
-                    <p>A revolutionary app to keep records of loans provided by the unorganized sector in India without
-                        any paperwork.</p>
-                    <p><em>Traditionally practiced, now technologically advanced.</em></p>
-                    <a href="#" class="cta-button animate__animated animate__pulse">Learn More</a>
-                    <a href="privacy.html" class="cta-button secondary animate__animated animate__pulse">Privacy
-                        Policy</a>
+            </div>
+            <div class="ps-visual fade-up" style="border-color:rgba(232,132,90,0.2);">
+                <div class="ps-visual-inner">
+                    <div class="sol-calendar">
+                        <div class="sol-cal-header">
+                            <span>🌙 Ramadan / May 2025</span>
+                            <span style="color:var(--muted);font-weight:400;font-size:0.72rem">2 Calendars</span>
+                        </div>
+                        <div class="sol-cal-grid">
+                            <div class="sol-day" style="color:var(--solunis);font-weight:600;font-size:0.65rem">Su</div>
+                            <div class="sol-day" style="color:var(--solunis);font-weight:600;font-size:0.65rem">Mo</div>
+                            <div class="sol-day" style="color:var(--solunis);font-weight:600;font-size:0.65rem">Tu</div>
+                            <div class="sol-day" style="color:var(--solunis);font-weight:600;font-size:0.65rem">We</div>
+                            <div class="sol-day" style="color:var(--solunis);font-weight:600;font-size:0.65rem">Th</div>
+                            <div class="sol-day" style="color:var(--solunis);font-weight:600;font-size:0.65rem">Fr</div>
+                            <div class="sol-day" style="color:var(--solunis);font-weight:600;font-size:0.65rem">Sa</div>
+                            <div class="sol-day">1</div>
+                            <div class="sol-day">2</div>
+                            <div class="sol-day">3</div>
+                            <div class="sol-day event">4</div>
+                            <div class="sol-day">5</div>
+                            <div class="sol-day">6</div>
+                            <div class="sol-day">7</div>
+                            <div class="sol-day">8</div>
+                            <div class="sol-day">9</div>
+                            <div class="sol-day">10</div>
+                            <div class="sol-day event">11</div>
+                            <div class="sol-day">12</div>
+                            <div class="sol-day">13</div>
+                            <div class="sol-day">14</div>
+                            <div class="sol-day active">15</div>
+                            <div class="sol-day">16</div>
+                            <div class="sol-day">17</div>
+                            <div class="sol-day">18</div>
+                            <div class="sol-day">19</div>
+                            <div class="sol-day event">20</div>
+                            <div class="sol-day">21</div>
+                            <div class="sol-day">22</div>
+                            <div class="sol-day">23</div>
+                            <div class="sol-day">24</div>
+                            <div class="sol-day">25</div>
+                            <div class="sol-day">26</div>
+                            <div class="sol-day">27</div>
+                            <div class="sol-day">28</div>
+                            <div class="sol-day">29</div>
+                            <div class="sol-day">30</div>
+                            <div class="sol-day">31</div>
+                        </div>
+                        <div class="sol-badges">
+                            <span class="sol-badge" style="background:rgba(232,132,90,0.15);color:var(--solunis)">🎂
+                                Amara's Birthday</span>
+                            <span class="sol-badge" style="background:rgba(200,169,110,0.15);color:var(--accent)">🕌 Eid
+                                ul-Adha</span>
+                            <span class="sol-badge" style="background:rgba(91,156,246,0.12);color:var(--placyra)">💍
+                                Aniversary</span>
+                        </div>
+                    </div>
                 </div>
-            </section>
-            <section class="about hero-content animate__animated animate__fadeInUp">
-                <div class="container">
-                    <img src="./phone.png" alt="Phone Image"> 
-                     <button class="download-button" onclick="window.open('https://play.google.com/store/apps/details?id=com.kumpali.mortgage', '_blank');">Download Our Android App</button> 
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CHUMBLE ── -->
+    <section id="chumble" class="product-section ps-chumble" style="background:var(--bg2)">
+        <div class="inner flip">
+            <div class="fade-up">
+                <div class="ps-label" style="color:var(--chumble)">Business · Chumble</div>
+                <div class="ps-name">Chumble</div>
+                <div class="ps-tagline">"The full operating system for your business — from the smallest kirana to the
+                    largest retail chain."</div>
+                <div class="ps-body">
+                    Chumble is not just software — it's a complete Business OS. Built for the realities of Indian and
+                    global commerce, it handles every operational need: storehouse and rack management, real-time
+                    inventory, sale and purchase tracking, tax suggestions, and dynamic pricing for different customer
+                    groups. Whether you run one shop or a hundred, Chumble grows with you.
                 </div>
-            </section>
-            <section class="about hero-content animate__animated animate__fadeInUp">
-                <div class="container">
-                    <img src="./win.png" alt="Windows Desktop Image"> 
-                     <button class="download-button">Download Our Windows App</button> 
+                <ul class="features-list">
+                    <li>
+                        <div class="feat-icon" style="background:var(--chumble-glow);color:var(--chumble)">📦</div>
+                        <div><strong>Storehouse & Rack Management</strong> — Know exactly what's where, always</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--chumble-glow);color:var(--chumble)">📊</div>
+                        <div><strong>Inventory Management</strong> — Real-time stock levels with low-stock alerts</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--chumble-glow);color:var(--chumble)">🧾</div>
+                        <div><strong>Sale & Purchase Records</strong> — Complete transaction history and reporting</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--chumble-glow);color:var(--chumble)">🧮</div>
+                        <div><strong>Tax Suggestions</strong> — GST-ready automated tax calculation and guidance</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--chumble-glow);color:var(--chumble)">👥</div>
+                        <div><strong>Customer Group Pricing</strong> — Set different price tiers for wholesale, retail,
+                            VIP customers</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="ps-visual fade-up" style="border-color:rgba(62,207,178,0.2);">
+                <div class="ps-visual-inner">
+                    <div class="chum-dashboard">
+                        <div class="chum-row">
+                            <div class="chum-box">
+                                <div class="chum-box-label">Today's Sales</div>
+                                <div class="chum-box-val">₹84,250</div>
+                                <div class="chum-bar-track">
+                                    <div class="chum-bar-fill" style="width:74%"></div>
+                                </div>
+                            </div>
+                            <div class="chum-box">
+                                <div class="chum-box-label">Items in Stock</div>
+                                <div class="chum-box-val">2,841</div>
+                                <div class="chum-bar-track">
+                                    <div class="chum-bar-fill" style="width:88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chum-row">
+                            <div class="chum-box">
+                                <div class="chum-box-label">Pending Orders</div>
+                                <div class="chum-box-val">37</div>
+                                <div class="chum-bar-track">
+                                    <div class="chum-bar-fill" style="width:40%"></div>
+                                </div>
+                            </div>
+                            <div class="chum-box">
+                                <div class="chum-box-label">Tax This Month</div>
+                                <div class="chum-box-val">₹12,400</div>
+                                <div class="chum-bar-track">
+                                    <div class="chum-bar-fill" style="width:55%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chum-box" style="border-color:rgba(62,207,178,0.3);">
+                            <div style="font-size:0.7rem;color:var(--muted);margin-bottom:0.5rem">📍 Rack A3 —
+                                Electronics</div>
+                            <div style="display:flex;gap:0.4rem;flex-wrap:wrap;">
+                                <span
+                                    style="padding:0.2rem 0.5rem;background:rgba(62,207,178,0.1);border-radius:6px;font-size:0.65rem;color:var(--chumble)">Sony
+                                    ×12</span>
+                                <span
+                                    style="padding:0.2rem 0.5rem;background:rgba(62,207,178,0.1);border-radius:6px;font-size:0.65rem;color:var(--chumble)">Samsung
+                                    ×8</span>
+                                <span
+                                    style="padding:0.2rem 0.5rem;background:rgba(232,132,90,0.1);border-radius:6px;font-size:0.65rem;color:var(--solunis)">⚠
+                                    Bosch low</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </section>
-            <section class="about hero-content animate__animated animate__fadeInUp">
-                <h2>About Kumpali Technologies</h2>
-                <p>Kumpali Technologies Private Limited is a software company dedicated to creating innovative solutions
-                    for traditional practices. Our latest product, Mortgage, aims to modernize the way loans are managed
-                    by lenders in India, making the process seamless and efficient.</p>
-            </section>
-            <section class="contact animate__animated animate__fadeInUp">
-                <h2>Contact Developer</h2>
-                <p>If you have any questions or need support, please reach out to our developers at <a
-                        href="mailto:kumpalitechnologies@gmail.com">kumpalitechnologies@gmail.com</a>.</p>
-            </section>
-        </main>
-        <footer>
-            <p>&copy; 2024 Kumpali Technologies Private Limited. All rights reserved.</p>
-        </footer>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── PLACYRA ── -->
+    <section id="placyra" class="product-section ps-placyra">
+        <div class="inner">
+            <div class="fade-up">
+                <div class="ps-label" style="color:var(--placyra)">Banking & Organisations · Placyra</div>
+                <div class="ps-name">Placyra</div>
+                <div class="ps-tagline">"Address is identity. Placyra makes it trustworthy."</div>
+                <div class="ps-body">
+                    Placyra solves one of the most fundamental problems in formal systems: knowing where a person truly
+                    lives. Built for banks, NBFCs, government departments, and any organisation needing reliable KYC,
+                    Placyra provides intelligent address verification using multiple data signals — reducing fraud,
+                    speeding onboarding, and bringing more people into the formal economy.
+                </div>
+                <ul class="features-list">
+                    <li>
+                        <div class="feat-icon" style="background:var(--placyra-glow);color:var(--placyra)">✅</div>
+                        <div><strong>Address Verification</strong> — Multi-layer verification using geolocation,
+                            official records, and AI</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--placyra-glow);color:var(--placyra)">🪪</div>
+                        <div><strong>KYC Enablement</strong> — Streamline Know Your Customer workflows for any
+                            institution</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--placyra-glow);color:var(--placyra)">🛡️</div>
+                        <div><strong>Fraud Prevention</strong> — Flag suspicious address patterns and duplicate
+                            identities</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--placyra-glow);color:var(--placyra)">🔗</div>
+                        <div><strong>API Integration</strong> — Drop-in integration with banking and onboarding systems
+                        </div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--placyra-glow);color:var(--placyra)">🗺️</div>
+                        <div><strong>Rural & Urban Coverage</strong> — Works for both urban PIN codes and remote village
+                            addresses</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="ps-visual fade-up" style="border-color:rgba(91,156,246,0.2);">
+                <div class="ps-visual-inner">
+                    <div class="plac-map">
+                        <div class="plac-pin">📍</div>
+                        <div class="plac-address">42, Gandhi Nagar, Patna — 800001</div>
+                        <div class="plac-verify">
+                            <span class="plac-check">✓</span>
+                            Address Verified · Confidence 97%
+                        </div>
+                        <div class="plac-fields">
+                            <div class="plac-field">Customer <span>Ravi Kumar</span></div>
+                            <div class="plac-field">State <span>Bihar</span></div>
+                            <div class="plac-field">District <span>Patna</span></div>
+                            <div class="plac-field">Geolocation <span style="color:var(--law)">✓ Matched</span></div>
+                            <div class="plac-field">Document Match <span style="color:var(--law)">✓ Aadhaar</span></div>
+                            <div class="plac-field">Risk Score <span style="color:var(--chumble)">Low</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── BLEDZ ── -->
+    <section id="bledz" class="product-section ps-bledz" style="background:var(--bg2)">
+        <div class="inner flip">
+            <div class="fade-up">
+                <div class="ps-label" style="color:var(--bledz)">Fashion · Bledz</div>
+                <div class="ps-name">Bledz</div>
+                <div class="ps-tagline">"Your body, your life, your style — Bledz finds clothes that truly fit you."
+                </div>
+                <div class="ps-body">
+                    Bledz is a personalised fashion intelligence platform. Rather than showing you every product in a
+                    catalogue, Bledz understands your body type, your lifestyle, your cultural preferences, and your
+                    budget — then surfaces clothing recommendations that genuinely suit you. It's like having a personal
+                    stylist who knows you deeply, available 24/7.
+                </div>
+                <ul class="features-list">
+                    <li>
+                        <div class="feat-icon" style="background:var(--bledz-glow);color:var(--bledz)">👤</div>
+                        <div><strong>Body-Type Intelligence</strong> — AI analysis to recommend cuts and silhouettes
+                            that flatter your frame</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--bledz-glow);color:var(--bledz)">🌐</div>
+                        <div><strong>Lifestyle Matching</strong> — Recommendations tailored to your profession, climate,
+                            and occasions</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--bledz-glow);color:var(--bledz)">🎨</div>
+                        <div><strong>Personal Aesthetic Learning</strong> — The more you use it, the better it
+                            understands your taste</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--bledz-glow);color:var(--bledz)">🛍️</div>
+                        <div><strong>Multi-Brand Sourcing</strong> — Shop across hundreds of brands from one intelligent
+                            feed</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--bledz-glow);color:var(--bledz)">🪡</div>
+                        <div><strong>Cultural Wear Awareness</strong> — Understands and respects regional and religious
+                            clothing preferences</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="ps-visual fade-up" style="border-color:rgba(212,105,154,0.2);">
+                <div class="ps-visual-inner">
+                    <div class="bledz-visual">
+                        <div class="bledz-profile">
+                            <div class="bledz-avatar">🧑</div>
+                            <div class="bledz-info">
+                                <b>Priya Sharma</b>
+                                <small>Hourglass · Corporate · Casual</small>
+                            </div>
+                        </div>
+                        <div style="font-size:0.72rem;color:var(--muted);padding:0 0.2rem">✨ Recommended for you today
+                        </div>
+                        <div class="bledz-recs">
+                            <div class="bledz-item">
+                                <div class="bledz-item-icon">👗</div>
+                                <div class="bledz-item-name">Wrap Dress</div>
+                                <div class="bledz-item-match" style="color:var(--bledz)">96% match</div>
+                            </div>
+                            <div class="bledz-item">
+                                <div class="bledz-item-icon">👔</div>
+                                <div class="bledz-item-name">Linen Blazer</div>
+                                <div class="bledz-item-match" style="color:var(--bledz)">91% match</div>
+                            </div>
+                            <div class="bledz-item">
+                                <div class="bledz-item-icon">👖</div>
+                                <div class="bledz-item-name">Flared Pants</div>
+                                <div class="bledz-item-match" style="color:var(--bledz)">88% match</div>
+                            </div>
+                        </div>
+                        <div
+                            style="padding:0.6rem 0.8rem;background:rgba(212,105,154,0.06);border:1px solid rgba(212,105,154,0.18);border-radius:10px;font-size:0.72rem;color:var(--muted)">
+                            Based on: <span style="color:var(--bledz)">Body shape · Office wear · Summer ·
+                                ₹500–2000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── LAWPARTNER ── -->
+    <section id="lawpartner" class="product-section ps-law">
+        <div class="inner">
+            <div class="fade-up">
+                <div class="ps-label" style="color:var(--law)">Legal · LawPartner</div>
+                <div class="ps-name">LawPartner</div>
+                <div class="ps-tagline">"Justice should not depend on who can afford a lawyer. LawPartner levels the
+                    field."</div>
+                <div class="ps-body">
+                    LawPartner is an AI-powered legal guidance platform that demystifies the law for ordinary citizens.
+                    When you face a legal challenge — whether it's a consumer dispute, domestic issue, property
+                    conflict, or workplace harassment — LawPartner walks you through the relevant laws, your rights, and
+                    exactly what steps to take. It empowers you to act, not just worry.
+                </div>
+                <ul class="features-list">
+                    <li>
+                        <div class="feat-icon" style="background:var(--law-glow);color:var(--law)">📋</div>
+                        <div><strong>Step-by-Step Legal Guidance</strong> — Clear action plans for common legal
+                            situations</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--law-glow);color:var(--law)">📚</div>
+                        <div><strong>Law Library</strong> — Access to relevant IPC sections, consumer laws, property
+                            laws, and more</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--law-glow);color:var(--law)">🛡️</div>
+                        <div><strong>Rights Awareness</strong> — Understand your fundamental and legal rights in plain
+                            language</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--law-glow);color:var(--law)">📝</div>
+                        <div><strong>Document Drafting Help</strong> — Templates for complaints, applications, and legal
+                            notices</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon" style="background:var(--law-glow);color:var(--law)">🔍</div>
+                        <div><strong>Crime Prevention Awareness</strong> — Educate on laws that protect against specific
+                            crimes</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="ps-visual fade-up" style="border-color:rgba(143,212,106,0.2);">
+                <div class="ps-visual-inner">
+                    <div class="law-visual">
+                        <div style="font-size:0.72rem;color:var(--muted);text-align:center;padding:0.2rem 0">⚖️
+                            Workplace Harassment — Your Action Plan</div>
+                        <div class="law-step">
+                            <div class="law-step-num">1</div>
+                            <div class="law-step-text">
+                                Document everything with dates and witnesses
+                                <small>Under POSH Act 2013, written evidence is critical</small>
+                            </div>
+                        </div>
+                        <div class="law-step">
+                            <div class="law-step-num">2</div>
+                            <div class="law-step-text">
+                                File a complaint with Internal Complaints Committee
+                                <small>Every company with 10+ employees must have one</small>
+                            </div>
+                        </div>
+                        <div class="law-step">
+                            <div class="law-step-num">3</div>
+                            <div class="law-step-text">
+                                If unresolved, approach Local Complaints Committee
+                                <small>District-level authority for external cases</small>
+                            </div>
+                        </div>
+                        <div class="law-step">
+                            <div class="law-step-num">4</div>
+                            <div class="law-step-text">
+                                File FIR under IPC Section 354A if criminal
+                                <small>Police complaint for severe harassment</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── STRIP ── -->
+    <div id="strip">
+        <div class="strip-item">
+            <div class="strip-num">5</div>
+            <div class="strip-lbl">Products</div>
+        </div>
+        <div class="strip-item">
+            <div class="strip-num">Billions</div>
+            <div class="strip-lbl">People to Serve</div>
+        </div>
+        <div class="strip-item">
+            <div class="strip-num">All</div>
+            <div class="strip-lbl">Religions &amp; Cultures</div>
+        </div>
+        <div class="strip-item">
+            <div class="strip-num">1</div>
+            <div class="strip-lbl">Ecosystem</div>
+        </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"></script>
-    <script src="./script.js"></script>
+
+    <!-- ── CTA ── -->
+    <section id="cta">
+        <div class="section-label" style="justify-content:center">Join Kumpali</div>
+        <h2>Ready to be<br><em
+                style="font-family:'Fraunces',serif;font-style:italic;background:linear-gradient(90deg,var(--accent),var(--solunis));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">assisted?</em>
+        </h2>
+        <p>One ecosystem. Five domains. Infinite possibilities for a better, more empowered life.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+            <a href="#" class="btn-primary">Get Started Free</a>
+            <a href="#products" class="btn-ghost">Explore Products</a>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ── -->
+    <footer>
+        <a href="#" class="footer-logo">KUMPALI</a>
+        <ul class="footer-links">
+            <li><a href="#solunis">Solunis</a></li>
+            <li><a href="#chumble">Chumble</a></li>
+            <li><a href="#placyra">Placyra</a></li>
+            <li><a href="#bledz">Bledz</a></li>
+            <li><a href="#lawpartner">LawPartner</a></li>
+        </ul>
+        <div class="footer-copy">© 2025 Kumpali. Assisting humanity, every domain.</div>
+    </footer>
+
+    <script>
+        // ── Hero Canvas Particles ──
+        const canvas = document.getElementById('hero-canvas');
+        const ctx = canvas.getContext('2d');
+        let W, H, particles = [];
+
+        function resize() {
+            W = canvas.width = canvas.offsetWidth;
+            H = canvas.height = canvas.offsetHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        const COLORS = ['#C8A96E', '#E8845A', '#3ECFB2', '#5B9CF6', '#D4699A', '#8FD46A'];
+
+        class Particle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * W;
+                this.y = Math.random() * H;
+                this.r = Math.random() * 1.8 + 0.4;
+                this.vx = (Math.random() - 0.5) * 0.3;
+                this.vy = (Math.random() - 0.5) * 0.3;
+                this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+                this.alpha = Math.random() * 0.5 + 0.1;
+            }
+            update() {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > W || this.y < 0 || this.y > H) this.reset();
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = this.alpha;
+                ctx.fill();
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        for (let i = 0; i < 160; i++) particles.push(new Particle());
+
+        function connectParticles() {
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a + 1; b < particles.length; b++) {
+                    const dx = particles[a].x - particles[b].x;
+                    const dy = particles[a].y - particles[b].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < 90) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.strokeStyle = particles[a].color;
+                        ctx.globalAlpha = (1 - dist / 90) * 0.07;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                        ctx.globalAlpha = 1;
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, W, H);
+            particles.forEach(p => { p.update(); p.draw(); });
+            connectParticles();
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // ── Scroll fade-up ──
+        const obs = new IntersectionObserver(entries => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+    </script>
 </body>
 
 </html>
