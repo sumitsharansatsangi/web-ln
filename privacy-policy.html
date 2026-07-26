@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Loanx</title>
+<meta name="description" content="Loanx Privacy Policy — how the app handles the ledger data you enter, Google Drive backups, and sharing via WhatsApp, Telegram, and print.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,560;9..144,650&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F1E4; --paper-alt:#EFE7D2; --card:#FBF8EF;
+    --ink:#26241D; --ink-soft:#5B5644; --ink-faint:#8A836C;
+    --green:#9fd09f; --green-deep:#3F6B45; --green-pale:#E4F0DF;
+    --thread:#a1382e; --thread-soft:#c98077; --rule:#d3c6a4;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--paper); color:var(--ink); font-family:'IBM Plex Sans',sans-serif; font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; position:relative;}
+  body::before{
+    content:""; position:fixed; inset:0; pointer-events:none; z-index:200; opacity:0.05; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  h1,h2,h3{font-family:'Fraunces',serif; font-weight:600; letter-spacing:-0.01em; color:var(--ink);}
+  a{color:var(--green-deep);}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:820px; margin:0 auto; padding:0 28px;}
+
+  header.site{position:sticky; top:0; z-index:50; background:rgba(246,241,228,0.92); backdrop-filter:blur(6px); border-bottom:1px solid var(--rule);}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:18px 0;}
+  .logo{display:flex; align-items:center; gap:10px; font-family:'Fraunces',serif; font-weight:650; font-size:20px; color:var(--ink);}
+  .logo .mark{ width:22px; height:22px; display:inline-flex; }
+  .logo .mark img{ width:100%; height:100%; display:block; object-fit:contain; }
+  .back{font-size:14px; color:var(--ink-soft); display:flex; align-items:center; gap:6px;}
+  .back:hover{color:var(--ink);}
+
+  .doc-head{padding:56px 0 28px; border-bottom:1px solid var(--rule);}
+  .eyebrow{display:inline-flex; align-items:center; gap:10px; font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.07em; text-transform:uppercase; color:var(--ink-faint); margin-bottom:18px;}
+  .eyebrow .dot{width:26px;height:1px;background:var(--thread);}
+  .doc-head h1{font-size:clamp(28px,4vw,40px); line-height:1.15; max-width:16ch;}
+  .doc-meta{margin-top:14px; font-size:13.5px; color:var(--ink-faint); font-family:'IBM Plex Mono',monospace;}
+
+  .notice{
+    margin:28px 0 0;
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-left:3px solid var(--thread);
+    border-radius:4px;
+    padding:16px 20px;
+    font-size:14px;
+    color:var(--ink-soft);
+  }
+  .notice strong{color:var(--ink);}
+
+  main{padding:44px 0 80px;}
+  .toc{
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-radius:6px;
+    padding:22px 26px;
+    margin-bottom:48px;
+  }
+  .toc h2{font-size:14px; text-transform:uppercase; letter-spacing:0.05em; font-family:'IBM Plex Mono',monospace; font-weight:500; color:var(--ink-faint); margin-bottom:14px;}
+  .toc ol{margin:0; padding-left:20px; columns:2; column-gap:24px;}
+  .toc li{font-size:14.5px; padding:4px 0; break-inside:avoid;}
+  .toc a{color:var(--ink-soft); text-decoration:none;}
+  .toc a:hover{color:var(--green-deep);}
+
+  article section{padding:30px 0; border-bottom:1px dashed var(--rule);}
+  article section:last-child{border-bottom:none;}
+  article h2{font-size:22px; display:flex; gap:12px; align-items:baseline; margin-bottom:14px;}
+  article h2 .snum{font-family:'IBM Plex Mono',monospace; font-size:14px; color:var(--green-deep); font-weight:500;}
+  article h3{font-size:16.5px; margin:20px 0 8px; font-weight:560;}
+  article p{color:var(--ink-soft); margin:0 0 12px; font-size:15.5px;}
+  article ul{color:var(--ink-soft); font-size:15.5px; padding-left:20px; margin:0 0 12px;}
+  article li{margin-bottom:6px;}
+  article table{width:100%; border-collapse:collapse; margin:14px 0 18px; font-size:14.5px;}
+  article th, article td{border:1px solid var(--rule); padding:10px 12px; text-align:left; vertical-align:top;}
+  article th{background:var(--paper-alt); font-family:'IBM Plex Mono',monospace; font-size:12px; text-transform:uppercase; letter-spacing:0.04em; color:var(--ink-faint); font-weight:500;}
+  .fill{background:var(--green-pale); color:var(--green-deep); padding:1px 6px; border-radius:3px; font-family:'IBM Plex Mono',monospace; font-size:13.5px;}
+
+  footer{padding:36px 0; border-top:1px solid var(--rule);}
+  .footer-note{font-size:13px; color:var(--ink-faint);}
+
+  .doc-links{display:none; gap:28px; align-items:center; font-size:14px; color:var(--ink-soft);}
+  @media(min-width:720px){ .doc-links{display:flex;} }
+  .doc-links a{ position:relative; padding:4px 0; color:var(--ink-soft); }
+  .doc-links a:hover{ color:var(--ink); }
+  .doc-links a.current{ color:var(--ink); }
+  .doc-links a.current::after{
+    content:""; position:absolute; left:0; bottom:-2px; width:100%; height:1px; background:var(--thread);
+  }
+  .doc-links a::after{
+    content:""; position:absolute; left:0; bottom:-2px; width:0%; height:1px; background:var(--thread); transition:width .25s ease;
+  }
+  .doc-links a:hover::after{ width:100%; }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <nav>
+      <a href="index.html" class="logo">
+        <span class="mark" aria-hidden="true"><img src="logo.png" alt="" width="22" height="22"></span>
+        Loanx
+      </a>
+      <div class="doc-links">
+        <a href="index.html">Home</a>
+        <a href="privacy-policy.html" class="current">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+      <a href="index.html" class="back">← Back to site</a>
+    </nav>
+  </div>
+</header>
+
+<div class="doc-head">
+  <div class="wrap">
+    <span class="eyebrow"><span class="dot"></span>Legal</span>
+    <h1>Privacy Policy</h1>
+    <p class="doc-meta">Effective date: <span class="fill">[DD Month YYYY]</span> · Last updated: <span class="fill">[DD Month YYYY]</span></p>
+    <div class="notice">
+      <strong>Before you publish this:</strong> this is a starting template written to cover what Google Play's Data Safety requirements, Apple App Store Review Guidelines, and Meta Platform Terms (relevant if you use WhatsApp's or Facebook's sharing/business tools) typically expect a privacy policy to disclose. It is not legal advice. Have a lawyer review it — especially the sections on lending-related recordkeeping, since money-lending is regulated differently in every country and state. Replace every <span class="fill">bracketed</span> placeholder before publishing.
+    </div>
+  </div>
+</div>
+
+<main>
+  <div class="wrap">
+
+    <nav class="toc" aria-label="Table of contents">
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#intro">Introduction</a></li>
+        <li><a href="#scope">Who this policy covers</a></li>
+        <li><a href="#collect">Information we collect</a></li>
+        <li><a href="#permissions">App permissions</a></li>
+        <li><a href="#use">How we use information</a></li>
+        <li><a href="#storage">Where your data lives</a></li>
+        <li><a href="#thirdparty">Third-party services</a></li>
+        <li><a href="#sharing">Sharing and disclosure</a></li>
+        <li><a href="#retention">Retention and deletion</a></li>
+        <li><a href="#children">Children's privacy</a></li>
+        <li><a href="#rights">Your rights and choices</a></li>
+        <li><a href="#transfers">International data transfers</a></li>
+        <li><a href="#security">Security</a></li>
+        <li><a href="#changes">Changes to this policy</a></li>
+        <li><a href="#contact">Contact us</a></li>
+      </ol>
+    </nav>
+
+    <article>
+
+      <section id="intro">
+        <h2><span class="snum">01</span> Introduction</h2>
+        <p><span class="fill">[Company Legal Name]</span> ("Loanx", "we", "us", "our") provides the Loanx mobile application (the "App") for Android and iOS, which helps individual lenders keep a private record of money or items they have lent, and generate receipts for borrowers. This Privacy Policy explains what information the App handles, why, and what choices you have.</p>
+        <p>By downloading or using Loanx, you agree to the collection and use of information as described here. If you do not agree, please do not use the App.</p>
+      </section>
+
+      <section id="scope">
+        <h2><span class="snum">02</span> Who this policy covers</h2>
+        <p>This policy applies to anyone who downloads or uses the Loanx App from the Google Play Store or Apple App Store. It covers the App itself and any features within it, including receipt sharing through WhatsApp, Telegram, or print, and backups to Google Drive.</p>
+        <p>It does not cover third-party services you choose to share receipts through (such as WhatsApp or Telegram) or Google Drive itself — those services have their own privacy policies, linked in Section 7.</p>
+      </section>
+
+      <section id="collect">
+        <h2><span class="snum">03</span> Information we collect</h2>
+
+        <h3>3.1 Information you enter into the App ("Ledger Data")</h3>
+        <p>Loanx does not require an account or login. To use the App, you enter your own lending records directly, which may include:</p>
+        <ul>
+          <li>Borrower name and, if you choose to add it, a phone number or note</li>
+          <li>Amount or item lent, and the date it was lent</li>
+          <li>Repayment status, repayment date, and any notes you add</li>
+          <li>Receipts you generate for sharing or printing</li>
+        </ul>
+        <p>This Ledger Data is stored locally on your device and, if you enable backup, in your own Google Drive account. Loanx does not transmit this data to our own servers, because Loanx does not operate a server that stores your ledger.</p>
+
+        <h3>3.2 Information collected automatically</h3>
+        <p>Like most apps, Loanx may automatically collect limited technical information to keep the App working correctly, such as:</p>
+        <ul>
+          <li>Device type, operating system version, and app version</li>
+          <li>Crash logs and basic performance diagnostics</li>
+          <li>Aggregated, non-identifying usage statistics (for example, which features are opened)</li>
+        </ul>
+        <p>This diagnostic information does not include your Ledger Data and is used only to fix bugs and improve app stability.</p>
+
+        <h3>3.3 Information from third-party services you connect</h3>
+        <p>If you choose to back up to Google Drive, Loanx requests limited permission through Google's sign-in and Drive APIs to create and update a backup file in your Drive. Loanx only accesses the specific backup file it creates — not your other Drive files, contacts, or Gmail. See Section 7 for details.</p>
+      </section>
+
+      <section id="permissions">
+        <h2><span class="snum">04</span> App permissions</h2>
+        <p>Loanx may request the following device permissions. You can decline optional permissions; some features will then be unavailable.</p>
+        <table>
+          <tr><th>Permission</th><th>Why it's requested</th><th>Required?</th></tr>
+          <tr><td>Storage</td><td>To save your ledger locally and generate printable receipts</td><td>Required</td></tr>
+          <tr><td>Google account access (Drive scope)</td><td>To create and update your daily backup file in your own Google Drive</td><td>Optional</td></tr>
+          <tr><td>Internet access</td><td>To back up to Google Drive and to open WhatsApp/Telegram share sheets</td><td>Required</td></tr>
+          <tr><td>Print service access</td><td>To print a receipt via your device's print service</td><td>Optional</td></tr>
+        </table>
+        <p>Loanx does not request access to your contacts, camera, microphone, or location, and does not need them to function.</p>
+      </section>
+
+      <section id="use">
+        <h2><span class="snum">05</span> How we use information</h2>
+        <ul>
+          <li>To let you record, search, and manage your own lending records within the App</li>
+          <li>To generate and format receipts for you to send or print</li>
+          <li>To back up your Ledger Data to your own Google Drive, at your request</li>
+          <li>To diagnose crashes and improve the App's stability and performance</li>
+          <li>To comply with legal obligations, such as responding to a valid legal request</li>
+        </ul>
+        <p>We do not use your Ledger Data for advertising, and we do not sell it. Loanx does not display third-party ads.</p>
+      </section>
+
+      <section id="storage">
+        <h2><span class="snum">06</span> Where your data lives</h2>
+        <p>Your Ledger Data is stored primarily on your device. If you turn on backup, a copy is written to a file in your own Google Drive account, once per day. Loanx does not keep a separate copy of this file on any server we operate. This means:</p>
+        <ul>
+          <li>If you uninstall the App without a Drive backup enabled, your local Ledger Data is deleted with it.</li>
+          <li>If you lose access to your Google account, we cannot recover your backup for you — it is stored under your account, governed by Google's own account-recovery process.</li>
+        </ul>
+      </section>
+
+      <section id="thirdparty">
+        <h2><span class="snum">07</span> Third-party services</h2>
+        <p>Loanx integrates with the following third-party services to provide backup and receipt-sharing features. Each is governed by its own privacy policy and terms, which we encourage you to review:</p>
+        <table>
+          <tr><th>Service</th><th>Used for</th><th>Their policy</th></tr>
+          <tr><td>Google Drive / Google Play Services</td><td>Daily backup of your ledger; app distribution and updates</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td></tr>
+          <tr><td>WhatsApp (Meta)</td><td>Sending a receipt if you choose the WhatsApp share option</td><td><a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener">whatsapp.com/legal/privacy-policy</a></td></tr>
+          <tr><td>Telegram</td><td>Sending a receipt if you choose the Telegram share option</td><td><a href="https://telegram.org/privacy" target="_blank" rel="noopener">telegram.org/privacy</a></td></tr>
+          <tr><td>Apple App Store Services</td><td>App distribution and updates on iOS</td><td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a></td></tr>
+        </table>
+        <p>When you tap "Send via WhatsApp" or "Send via Telegram," Loanx hands the receipt content to that app's own share function on your device. Once it leaves Loanx, its handling is governed by that platform's policy, not this one.</p>
+      </section>
+
+      <section id="sharing">
+        <h2><span class="snum">08</span> Sharing and disclosure</h2>
+        <p>We do not sell your information. We do not share your Ledger Data with advertisers or data brokers. We may disclose limited information only:</p>
+        <ul>
+          <li>When you direct us to, by using a share or print feature</li>
+          <li>To service providers who help operate the App (for example, crash-reporting tools), under confidentiality obligations</li>
+          <li>If required by law, regulation, legal process, or a valid governmental request</li>
+          <li>To protect the rights, safety, or property of Loanx, our users, or the public</li>
+          <li>In connection with a merger, acquisition, or sale of assets, with notice to you where required by law</li>
+        </ul>
+      </section>
+
+      <section id="retention">
+        <h2><span class="snum">09</span> Retention and deletion</h2>
+        <p>Your Ledger Data is retained on your device until you delete it or uninstall the App. Backup files in your Google Drive are retained until you delete them from your Drive — Loanx does not automatically remove old backups. Diagnostic and crash data is retained only as long as needed to investigate and resolve issues, typically no longer than <span class="fill">[X months]</span>.</p>
+        <p>To delete your data: delete individual entries in the App, clear the App's local storage from your device settings, and/or delete the backup file from your Google Drive.</p>
+      </section>
+
+      <section id="children">
+        <h2><span class="snum">10</span> Children's privacy</h2>
+        <p>Loanx is intended for adults managing personal or small-business lending records and is not directed to children. We do not knowingly collect information from children under 13 (or the minimum age required in your country). If you believe a child has provided information through the App, contact us using the details in Section 15 and we will remove it.</p>
+      </section>
+
+      <section id="rights">
+        <h2><span class="snum">11</span> Your rights and choices</h2>
+        <p>Depending on where you live, you may have rights to access, correct, export, or delete your personal information, and to object to or restrict certain processing (for example, under the GDPR in the EU/UK, or the CCPA/CPRA in California). Because your Ledger Data lives on your device and your own Drive, you can exercise most of these rights directly:</p>
+        <ul>
+          <li><strong>Access and export:</strong> view or export your ledger from within the App, or open your backup file directly in Google Drive.</li>
+          <li><strong>Correction:</strong> edit any entry directly in the App.</li>
+          <li><strong>Deletion:</strong> delete entries in the App, uninstall the App, and/or delete your Drive backup file.</li>
+          <li><strong>Withdraw consent:</strong> turn off Drive backup at any time in the App's settings.</li>
+        </ul>
+        <p>For anything we hold ourselves (such as diagnostic data), contact us using the details in Section 15 and we will respond within the timeframe required by applicable law.</p>
+      </section>
+
+      <section id="transfers">
+        <h2><span class="snum">12</span> International data transfers</h2>
+        <p>Because Loanx relies on Google, Apple, WhatsApp, and Telegram infrastructure, your data may be processed on servers located outside your country, in accordance with those providers' own safeguards and policies. Loanx itself does not operate servers that store your Ledger Data.</p>
+      </section>
+
+      <section id="security">
+        <h2><span class="snum">13</span> Security</h2>
+        <p>We rely on your device's built-in security (such as screen lock) and Google's account security for your Drive backup. We recommend enabling a passcode or biometric lock on your device, since anyone with access to your unlocked device can access the App. No method of storage or transmission is 100% secure, and we cannot guarantee absolute security.</p>
+      </section>
+
+      <section id="changes">
+        <h2><span class="snum">14</span> Changes to this policy</h2>
+        <p>We may update this Privacy Policy from time to time, for example to reflect new features or legal requirements. We will update the "Last updated" date above, and for material changes, we will provide notice within the App or through the app store listing before the change takes effect.</p>
+      </section>
+
+      <section id="contact">
+        <h2><span class="snum">15</span> Contact us</h2>
+        <p>If you have questions about this Privacy Policy or how Loanx handles information, contact us at:</p>
+        <p><span class="fill">[support@yourdomain.com]</span> · <span class="fill">[Company Legal Name and Address]</span></p>
+      </section>
+
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="footer-note">© <span class="fill">2026</span> Loanx. This document is a template and does not constitute legal advice.</p>
+  </div>
+</footer>
+
+</body>
+</html>
